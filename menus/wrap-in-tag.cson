@@ -1,0 +1,22 @@
+# See https://atom.io/docs/latest/hacking-atom-package-word-count#menus for more details
+'context-menu':
+  'atom-text-editor': [
+    {
+      'label': 'Wrap in tag'
+      'command': 'wrap-in-tag:wrap'
+    }
+  ]
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'Wrap in tag'
+      'submenu': [
+        {
+          'label': 'Wrap'
+          'command': 'wrap-in-tag:wrap'
+        }
+      ]
+    ]
+  }
+]

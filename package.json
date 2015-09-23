@@ -1,0 +1,18 @@
+{
+  "name": "atom-wrap-in-tag",
+  "main": "./lib/wrap-in-tag",
+  "version": "0.0.0",
+  "description": "Wrap tag around selection",
+  "keywords": [
+  ],
+  "activationCommands": {
+    "atom-workspace": "wrap-in-tag:wrap"
+  },
+  "repository": "https://github.com/sanusart/atom-wrap-in-tag",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+  }
+}
