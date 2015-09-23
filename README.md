@@ -4,6 +4,12 @@ Simplest package for [Atom](https://atom.io/) that wraps tag around selection - 
 
 Just select a word or phrase and hit <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>w</kbd>
 
+## Installation
+
+`apm install atom-wrap-in-tag`
+
+or find _atom-wrap-in-tag_ in **Settings** > **Install** tab
+
 ![A screenshot of your package](https://raw.githubusercontent.com/sanusart/atom-wrap-in-tag/master/images/screenshot.gif)
 
 License: MIT
