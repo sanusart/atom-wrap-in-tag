@@ -1,7 +1,7 @@
 {
   "name": "atom-wrap-in-tag",
   "main": "./lib/wrap-in-tag",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Wrap tag around selection",
   "keywords": [],
   "activationCommands": {
