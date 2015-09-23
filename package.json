@@ -1,10 +1,9 @@
 {
   "name": "atom-wrap-in-tag",
   "main": "./lib/wrap-in-tag",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Wrap tag around selection",
-  "keywords": [
-  ],
+  "keywords": [],
   "activationCommands": {
     "atom-workspace": "wrap-in-tag:wrap"
   },
@@ -13,6 +12,5 @@
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
