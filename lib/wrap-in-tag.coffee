@@ -33,3 +33,10 @@ module.exports =
       editor.setCursorBufferPosition([tagRangePos.start.row, tagRangePos.start.column+1])
       editor.addSelectionForBufferRange(newStartTagSelectRange)
       editor.addSelectionForBufferRange(newEndTagSelectRange)
+
+      editorView = atom.views.getView editor
+      editorView.addEventListener 'keydown', (event) ->
+        if event.keyCode is 32
+          if editor.cursors.length > 1
+            editor.cursors[1].marker.destroy()
+          @removeEventListener 'keydown', arguments.callee;
