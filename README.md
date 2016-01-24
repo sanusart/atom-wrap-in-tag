@@ -18,4 +18,6 @@ or find _atom-wrap-in-tag_ in **Settings** > **Install** tab
 
 - Doesn't Work with multiple selects. Issues: [#2](https://github.com/sanusart/atom-wrap-in-tag/issues/1), [#4](https://github.com/sanusart/atom-wrap-in-tag/issues/4)
 
-License: MIT
+### License: 
+
+MIT
