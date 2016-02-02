@@ -5,38 +5,38 @@ module.exports =
     atom.commands.add 'atom-workspace', 'wrap-in-tag:wrap': => @wrap()
 
   wrap: ->
-
-    tag = 'p'
-
     if editor = atom.workspace.getActiveTextEditor()
-      selection = editor.getSelectedText()
-      tagRangePos = editor.getSelectedBufferRange()
+      editor.getSelections().map((item) -> wrapSelection(editor, item))
 
-      newText = ['<', tag, '>', selection, '</', tag, '>'].join('')
+wrapSelection = (editor, selection) ->
+  tag = 'p'
+  text = selection.getText()
+  tagRangePos = selection.getBufferRange()
 
-      range =
-        start:
-          from: [tagRangePos.start.row, tagRangePos.start.column+1]
-          to: [tagRangePos.start.row, tagRangePos.start.column+2]
-        end:
-          from: [tagRangePos.end.row, tagRangePos.end.column+5],
-          to: [tagRangePos.end.row, tagRangePos.end.column+6]
+  newText = ['<', tag, '>', text, '</', tag, '>'].join('')
 
-      if range.end.from[0] > range.start.from[0]
-        range.end.from[1] = range.end.from[1] - 3
-        range.end.to[1] = range.end.to[1] - 3
+  range =
+    start:
+      from: [tagRangePos.start.row, tagRangePos.start.column+1]
+      to: [tagRangePos.start.row, tagRangePos.start.column+2]
+    end:
+      from: [tagRangePos.end.row, tagRangePos.end.column+5],
+      to: [tagRangePos.end.row, tagRangePos.end.column+6]
 
-      newStartTagSelectRange = [range.start.from, range.start.to]
-      newEndTagSelectRange = [range.end.from, range.end.to]
+  if range.end.from[0] > range.start.from[0]
+    range.end.from[1] = range.end.from[1] - 3
+    range.end.to[1] = range.end.to[1] - 3
 
-      editor.insertText(newText)
-      editor.setCursorBufferPosition([tagRangePos.start.row, tagRangePos.start.column+1])
-      editor.addSelectionForBufferRange(newStartTagSelectRange)
-      editor.addSelectionForBufferRange(newEndTagSelectRange)
+  newStartTagSelectRange = [range.start.from, range.start.to]
+  newEndTagSelectRange = [range.end.from, range.end.to]
 
-      editorView = atom.views.getView editor
-      editorView.addEventListener 'keydown', (event) ->
-        if event.keyCode is 32
-          if editor.cursors.length > 1
-            editor.cursors[1].marker.destroy()
-          @removeEventListener 'keydown', arguments.callee;
+  selection.insertText(newText)
+  selection.cursor.setBufferPosition([tagRangePos.start.row, tagRangePos.start.column+1])
+  editor.addSelectionForBufferRange(newStartTagSelectRange)
+  endTagSelection = editor.addSelectionForBufferRange(newEndTagSelectRange)
+
+  editorView = atom.views.getView editor
+  editorView.addEventListener 'keydown', (event) ->
+    if event.keyCode is 32
+      endTagSelection.cursor.marker.destroy()
+      @removeEventListener 'keydown', arguments.callee;
