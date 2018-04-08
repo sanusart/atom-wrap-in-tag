@@ -6,6 +6,6 @@
 # the root workspace element.
 
 # For more detailed documentation see
-# https://atom.io/docs/latest/behind-atom-keymaps-in-depth
+# https://flight-manual.atom.io/behind-atom/sections/keymaps-in-depth/
 'atom-workspace':
   'alt-shift-w': 'wrap-in-tag:wrap'
