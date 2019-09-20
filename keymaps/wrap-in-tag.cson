@@ -8,4 +8,5 @@
 # For more detailed documentation see
 # https://flight-manual.atom.io/behind-atom/sections/keymaps-in-depth/
 'atom-workspace':
-  'alt-shift-w': 'wrap-in-tag:wrap'
+    'alt-w': 'wrap-in-tag:wrap'
+    'alt-shift-w': 'wrap-in-tag:wraptag'
